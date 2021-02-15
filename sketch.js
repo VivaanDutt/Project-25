@@ -7,12 +7,7 @@ var ground;
 var box1, boxImage;
 
 var paper1, paperImage;
-
-function preload()
-{
-  paperImage = loadImage("paper.png");
-  boxImage = loadImage("dustbingreen.png");
-}
+var dustbin1, dustbin2, dustbin3;
 
 function setup() {
 	createCanvas(1200, 700);
@@ -23,30 +18,29 @@ function setup() {
 
   ground = new Ground(600, 700, 1200, 50);
 
-	paper1 = new Paper(200, 500, 70);
+  paper1 = new Paper(200, 500, 70);
+  
+  dustbin1 = new Dustbin(800, 660, 200, 20);
+  dustbin2 = new Dustbin(700, 620, 20, 100);
+  dustbin3 = new Dustbin(900, 620, 20, 100);
+  console.log(paper1);
 
 	Engine.run(engine);
 }
 
 
 function draw() {
-  rectMode(CENTER);  
-  keyPressed(); 
-  background(0);
-  fill("red");
-  rect(800, 660, 200, 20);
-	rect(700, 620, 20, 100);
-  rect(900, 620, 20, 100);
-  noFill(); 
-  paper1.display();
+  background(180);
   ground.display();
-  keyPressed();
-  box1.addImage(boxImage);
+  dustbin1.display();
+  dustbin2.display();
+  dustbin3.display();
+  paper1.display();
 }
 
 function keyPressed() {
   if (keyCode === UP_ARROW) {
-      Matter.Body.applyForce(paper1.body, paper1.body.position, {x: 85, y: -20});
+      Matter.Body.applyForce(paper1.body, paper1.body.position, {x: 85, y: -85});
   }
 }
 
