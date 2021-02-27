@@ -4,6 +4,7 @@ class Dustbin {
         this.body = Bodies.rectangle(x, y, width, height, options);
         this.width = width;
         this.height = height;
+        this.image = loadImage("dustbingreen.png");
         World.add(world, this.body);
     }
 
@@ -11,9 +12,8 @@ class Dustbin {
         var pos = this.body.position;
         push();
         translate(pos.x, pos.y);
-        rectMode(CENTER);
-        fill("red");
-        rect(0, 0, this.width, this.height);
+        imageMode(CENTER);
+        image(this.image, 0, -85, 175, 200);
         pop();
     }
 }

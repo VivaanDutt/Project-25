@@ -20,10 +20,9 @@ function setup() {
 
   paper1 = new Paper(200, 500, 70);
   
-  dustbin1 = new Dustbin(800, 660, 200, 20);
-  dustbin2 = new Dustbin(700, 620, 20, 100);
-  dustbin3 = new Dustbin(900, 620, 20, 100);
-  console.log(paper1);
+  dustbin1 = new Dustbin(800, 660, 175, 20);
+  dustbin2 = new Dustbin(720, 580, 20, 150);
+  dustbin3 = new Dustbin(870, 580, 20, 150);
 
 	Engine.run(engine);
 }
@@ -32,15 +31,15 @@ function setup() {
 function draw() {
   background(180);
   ground.display();
-  dustbin1.display();
-  dustbin2.display();
-  dustbin3.display();
   paper1.display();
+  dustbin1.display();
+  // dustbin2.display();
+  // dustbin3.display();
 }
 
 function keyPressed() {
   if (keyCode === UP_ARROW) {
-      Matter.Body.applyForce(paper1.body, paper1.body.position, {x: 85, y: -85});
+      Matter.Body.applyForce(paper1.body, paper1.body.position, {x: 700, y: -1000});
   }
 }
 
